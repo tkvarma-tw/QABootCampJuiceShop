@@ -9,6 +9,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
+import java.io.IOException;
+
 public class BastTest {
 
     protected BastTest()
@@ -17,8 +19,7 @@ public class BastTest {
     }
 
     @BeforeMethod
-    public void setUp()
-    {
+    public void setUp() throws Exception {
         Driver.initDriver();
     }
 
