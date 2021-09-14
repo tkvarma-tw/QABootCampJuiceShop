@@ -1,6 +1,7 @@
 package com.qabootcamp.tests;
 
 import com.qabootcamp.constants.FrameworkConstants;
+import com.qabootcamp.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +14,9 @@ public class LoginPageTests extends BastTest{
     @Test
     public void test1() throws InterruptedException {
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//button//span[text()=\"Dismiss\"]")).click();
-        driver.findElement(By.id("navbarAccount")).click();
-        driver.findElement(By.id("navbarLoginButton")).click();
+        Driver.driver.findElement(By.xpath("//button//span[text()=\"Dismiss\"]")).click();
+        Driver.driver.findElement(By.id("navbarAccount")).click();
+        Driver.driver.findElement(By.id("navbarLoginButton")).click();
         Thread.sleep(1000);
 
     }
@@ -23,9 +24,9 @@ public class LoginPageTests extends BastTest{
     @Test
     public void test2() throws InterruptedException {
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//button//span[text()=\"Dismiss\"]")).click();
-        driver.findElement(By.id("navbarAccount")).click();
-        driver.findElement(By.id("navbarLoginButton")).click();
+        Driver.driver.findElement(By.xpath("//button//span[text()=\"Dismiss\"]")).click();
+        Driver.driver.findElement(By.id("navbarAccount")).click();
+        Driver.driver.findElement(By.id("navbarLoginButton")).click();
         Thread.sleep(1000);
 
     }
