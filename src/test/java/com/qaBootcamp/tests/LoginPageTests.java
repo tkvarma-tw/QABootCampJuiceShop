@@ -14,4 +14,13 @@ public class LoginPageTests {
         driver.get("http://localhost:3000");
         driver.quit();
     }
+
+    @Test
+    public void test2()
+    {
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/executables/chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:3000");
+        driver.quit();
+    }
 }
