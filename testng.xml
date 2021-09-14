@@ -6,6 +6,8 @@
         <classes>
             <class name="com.qabootcamp.tests.LoginPageTests">
             </class>
+            <class name="com.qabootcamp.tests.CreateCustomerTests">
+            </class>
         </classes>
     </test>
 </suite>

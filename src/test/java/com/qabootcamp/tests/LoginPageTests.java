@@ -8,23 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginPageTests {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp()
-    {
-        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
-        driver = new ChromeDriver();
-        driver.get("http://localhost:3000");
-    }
-
-    @AfterMethod
-    public void tearDown()
-    {
-        driver.quit();
-    }
+public class LoginPageTests extends BastTest{
 
     @Test
     public void test1() throws InterruptedException {
