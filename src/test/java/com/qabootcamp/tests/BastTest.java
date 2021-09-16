@@ -26,6 +26,7 @@ public class BastTest {
     @AfterMethod
     public void tearDown()
     {
+
         Driver.quitDriver();
     }
 }
