@@ -14,9 +14,7 @@ import java.io.IOException;
 public class BastTest {
 
     protected BastTest()
-    {
-
-    }
+    {}
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -26,7 +24,6 @@ public class BastTest {
     @AfterMethod
     public void tearDown()
     {
-
         Driver.quitDriver();
     }
 }
