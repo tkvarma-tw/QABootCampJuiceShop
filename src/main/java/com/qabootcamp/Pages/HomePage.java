@@ -3,7 +3,7 @@ package com.qabootcamp.Pages;
 import com.qabootcamp.driver.Driver;
 import org.openqa.selenium.By;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
     public static By welcomeBanner = By.xpath("(//button[contains(@aria-label,'Close Welcome Banner')])[1]");
     public static By myAccount = By.id("navbarAccount");
@@ -12,16 +12,16 @@ public class HomePage {
 
 
     public HomePage skipBanner() {
-        Driver.driver.findElement(welcomeBanner).click();
+         findElement(welcomeBanner).click();
         return this;
     }
 
     public void navigateToLogin() {
-        Driver.driver.findElement(myAccount).click();
-        Driver.driver.findElement(login).click();
+        findElement(myAccount).click();
+        findElement(login).click();
     }
     public boolean isLoggedIn() {
-        Driver.driver.findElement(this.myAccount).click();
-        return Driver.driver.findElement(this.logoutButton).isDisplayed();
+        findElement(this.myAccount).click();
+        return  findElement(this.logoutButton).isDisplayed();
     }
 }

@@ -25,18 +25,15 @@ public final class  LoginPageTests extends BastTest{
 
     @BeforeMethod
     public void setup() throws Exception {
-        Thread.sleep(1000);
         new HomePage().skipBanner().navigateToLogin();
         email = getRandomEmail();
         password=ReadPropertyFile.getProperty("password");
         new NewCustomerPage().registerNewCustomer(email, password);
-        Thread.sleep(1000);
     }
 
     @Test
     public void shouldBeAbleLoginWithValidCredentials() throws InterruptedException {
         new LoginPage().withValidCredentials(email,password);
-        Thread.sleep(1000);
         Assert.assertEquals(new HomePage().isLoggedIn(),true);
 
     }

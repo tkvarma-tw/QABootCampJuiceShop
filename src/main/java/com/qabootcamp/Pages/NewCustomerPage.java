@@ -3,7 +3,7 @@ package com.qabootcamp.Pages;
 import com.qabootcamp.driver.Driver;
 import org.openqa.selenium.By;
 
-public class NewCustomerPage {
+public class NewCustomerPage extends BasePage {
     public static By newCustomerLink = By.id("newCustomerLink");
     public static By email = By.id("emailControl");
     public static By password = By.id("passwordControl");
@@ -14,13 +14,13 @@ public class NewCustomerPage {
     public static By registerButton = By.id("registerButton");
 
     public void registerNewCustomer(String email, String password) {
-        Driver.driver.findElement(newCustomerLink).click();
-        Driver.driver.findElement(this.email).sendKeys(email);
-        Driver.driver.findElement(this.password).sendKeys(password);
-        Driver.driver.findElement(repeatPassword).sendKeys(password);
-        Driver.driver.findElement(openDropDown).click();
-        Driver.driver.findElement(selectOption).click();
-        Driver.driver.findElement(securityAnswer).sendKeys("Test");
-        Driver.driver.findElement(registerButton).click();
+         findElement(newCustomerLink).click();
+         findElement(this.email).sendKeys(email);
+         findElement(this.password).sendKeys(password);
+         findElement(repeatPassword).sendKeys(password);
+         findElement(openDropDown).click();
+         findElement(selectOption).click();
+         findElement(securityAnswer).sendKeys("Test");
+         findElement(registerButton).click();
     }
 }
