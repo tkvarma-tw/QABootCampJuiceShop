@@ -1,6 +1,5 @@
 package com.qabootcamp.Pages;
 
-import com.qabootcamp.driver.Driver;
 import org.openqa.selenium.By;
 
 public class HomePage extends BasePage {
@@ -10,17 +9,21 @@ public class HomePage extends BasePage {
     public static By login = By.id("navbarLoginButton");
     public static By logoutButton = By.id("navbarLogoutButton");
 
+    public HomePage() throws Exception {
+        super();
+    }
 
-    public HomePage skipBanner() {
+
+    public HomePage skipBanner() throws Exception {
          findElement(welcomeBanner).click();
         return this;
     }
 
-    public void navigateToLogin() {
+    public void navigateToLogin() throws Exception {
         findElement(myAccount).click();
         findElement(login).click();
     }
-    public boolean isLoggedIn() {
+    public boolean isLoggedIn() throws Exception {
         findElement(this.myAccount).click();
         return  findElement(this.logoutButton).isDisplayed();
     }

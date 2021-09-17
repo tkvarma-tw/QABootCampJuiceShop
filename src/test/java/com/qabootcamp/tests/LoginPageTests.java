@@ -3,12 +3,9 @@ package com.qabootcamp.tests;
 import com.qabootcamp.Pages.HomePage;
 import com.qabootcamp.Pages.LoginPage;
 import com.qabootcamp.Pages.NewCustomerPage;
-import com.qabootcamp.driver.Driver;
 import com.qabootcamp.utils.ReadPropertyFile;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.Random;
@@ -32,7 +29,7 @@ public final class  LoginPageTests extends BastTest{
     }
 
     @Test
-    public void shouldBeAbleLoginWithValidCredentials() throws InterruptedException {
+    public void shouldBeAbleLoginWithValidCredentials() throws Exception {
         new LoginPage().withValidCredentials(email,password);
         Assert.assertEquals(new HomePage().isLoggedIn(),true);
 

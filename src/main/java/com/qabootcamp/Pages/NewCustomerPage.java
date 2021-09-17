@@ -1,6 +1,5 @@
 package com.qabootcamp.Pages;
 
-import com.qabootcamp.driver.Driver;
 import org.openqa.selenium.By;
 
 public class NewCustomerPage extends BasePage {
@@ -13,7 +12,11 @@ public class NewCustomerPage extends BasePage {
     public static By securityAnswer = By.id("securityAnswerControl");
     public static By registerButton = By.id("registerButton");
 
-    public void registerNewCustomer(String email, String password) {
+    public NewCustomerPage() throws Exception {
+        super();
+    }
+
+    public void registerNewCustomer(String email, String password) throws Exception {
          findElement(newCustomerLink).click();
          findElement(this.email).sendKeys(email);
          findElement(this.password).sendKeys(password);
