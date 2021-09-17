@@ -1,6 +1,7 @@
 package com.qabootcamp.Pages;
 
-import com.qabootcamp.driver.DriverManager;
+import com.qabootcamp.driver.DriverFactory;
+import com.qabootcamp.utils.ReadPropertyFile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,14 +19,14 @@ public class BasePage {
     Predicate<WebElement> isElementLocated = WebElement::isDisplayed;
 
     public BasePage() throws Exception {
-        this.driver = DriverManager.getInstance();
+        this.driver = DriverFactory.getDriver(ReadPropertyFile.getProperty("browser"));
     }
 
     public WebElement findElement(By by) throws Exception {
         await().atMost(ofSeconds(20))
                 .pollInterval(ofSeconds(1))
                 .ignoreExceptions()
-                .until(() -> isElementLocated.test(DriverManager.getInstance().findElement(by)));
-        return DriverManager.getInstance().findElement(by);
+                .until(() -> isElementLocated.test(DriverFactory.getDriver(ReadPropertyFile.getProperty("browser")).findElement(by)));
+        return DriverFactory.getDriver(ReadPropertyFile.getProperty("browser")).findElement(by);
     }
 }
