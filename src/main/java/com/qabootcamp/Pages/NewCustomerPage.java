@@ -1,5 +1,6 @@
 package com.qabootcamp.Pages;
 
+import com.qabootcamp.models.CustomerFormModel;
 import org.openqa.selenium.By;
 
 public class NewCustomerPage extends BasePage {
@@ -16,14 +17,14 @@ public class NewCustomerPage extends BasePage {
         super();
     }
 
-    public void registerNewCustomer(String email, String password) throws Exception {
+    public void registerNewCustomer(CustomerFormModel customerFormModel) throws Exception {
          findElement(newCustomerLink).click();
-         findElement(this.email).sendKeys(email);
-         findElement(this.password).sendKeys(password);
-         findElement(repeatPassword).sendKeys(password);
+         findElement(this.email).sendKeys(customerFormModel.getEmail());
+         findElement(this.password).sendKeys(customerFormModel.getPassword());
+         findElement(repeatPassword).sendKeys(customerFormModel.getPassword());
          findElement(openDropDown).click();
          findElement(selectOption).click();
-         findElement(securityAnswer).sendKeys("Test");
+         findElement(securityAnswer).sendKeys(customerFormModel.getAnswer());
          findElement(registerButton).click();
     }
 }

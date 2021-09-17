@@ -17,6 +17,6 @@ public class BastTest {
 
     @AfterMethod
     public void tearDown() throws Exception {
-        DriverFactory.getDriver(ReadPropertyFile.getProperty("browser")).quit();
+        DriverFactory.quitDriver();
     }
 }

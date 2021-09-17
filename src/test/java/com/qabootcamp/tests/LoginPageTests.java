@@ -3,6 +3,7 @@ package com.qabootcamp.tests;
 import com.qabootcamp.Pages.HomePage;
 import com.qabootcamp.Pages.LoginPage;
 import com.qabootcamp.Pages.NewCustomerPage;
+import com.qabootcamp.models.CustomerFormModel;
 import com.qabootcamp.utils.ReadPropertyFile;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +26,10 @@ public final class  LoginPageTests extends BastTest{
         new HomePage().skipBanner().navigateToLogin();
         email = getRandomEmail();
         password=ReadPropertyFile.getProperty("password");
-        new NewCustomerPage().registerNewCustomer(email, password);
+        CustomerFormModel customerFormModel = new CustomerFormModel.
+                CustomerFormBuilder(email,password).
+                answer("test").build();
+        new NewCustomerPage().registerNewCustomer(customerFormModel);
     }
 
     @Test

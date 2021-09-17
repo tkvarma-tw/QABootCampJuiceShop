@@ -49,7 +49,7 @@ public class DriverFactory {
     }
 
 
-    public void quitDriver() throws Exception {
+    public static void quitDriver() throws Exception {
         if(driver!=null) {
             driver.quit();
             driver=null;
