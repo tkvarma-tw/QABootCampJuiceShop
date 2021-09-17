@@ -1,5 +1,6 @@
 package com.qabootcamp.driver;
 
+import com.qabootcamp.constants.FrameworkConstants;
 import com.qabootcamp.utils.ReadPropertyFile;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -32,31 +33,8 @@ public class DriverManager {
     }
 
     private WebDriver getDriver() throws Exception {
-        String browser = ReadPropertyFile.getProperty("browser");
-        switch (browser) {
-            case "IE":
-                WebDriverManager.iedriver().setup();
-                driver= new InternetExplorerDriver();
-            case "EDGE":
-                WebDriverManager.edgedriver().setup();
-                driver=new EdgeDriver();
-            case "FIREFOX":
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-            case "REMOTE":
-                DesiredCapabilities capabilities = new DesiredCapabilities();
-                capabilities.setCapability("browserName", "chrome");
-
-                try {
-                    driver= new RemoteWebDriver(new URL(ReadPropertyFile.getProperty("huburl")),
-                            capabilities);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-            default:
-                WebDriverManager.chromedriver().setup();
-                driver= new ChromeDriver();
-        }
+        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
+        driver = new ChromeDriver();
         return driver;
     }
 
